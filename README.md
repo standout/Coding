@@ -2,8 +2,6 @@
 
 In order to write readable, eloquent and coherent code we use the coding conventions listed in this file. If you don't agree with our standards, why not fork this and pull back your own preferences?
 
----
-
 ## General
 
 ### Indentation
@@ -21,11 +19,7 @@ Example:
     method_call(long_arg, long_arg,        arg)
     method_call(arg,      even_longer_arg, arg)
 
----
-
 ## Ruby
-
----
 
 ## JavaScript
 
@@ -67,10 +61,6 @@ Example:
 
 ### Use the var keyword
 
----
-
 ## Markup
-
----
 
 ## CSS
