@@ -21,6 +21,14 @@ Example:
 
 ## Ruby
 
+### Installation
+
+Installation of new Rack or Rails applications should be done with Pow. Pow is a efficient way to handle your applications without unnecessary configuration.
+
+### Indentation
+
+Indentation in Ruby should follow the Ruby best practices. In this case it means we break the general rule about indentation. Use 2 space indent, no tabs.
+
 ## JavaScript
 
 ### Don't pollute the global scope
