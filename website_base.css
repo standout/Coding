@@ -3,9 +3,17 @@
   This is a starting point for a website css file.
   
  */
+ 
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+}
+
 body {
+  margin: 0;
+  background: #fff;
   color: #333; 
-    font-family: Verdana, Tahoma, Geneva, sans-serif;
+  font-family: Verdana, Tahoma, Geneva, sans-serif;
 }
 
 /* Set rules for all header elements */
@@ -21,15 +29,33 @@ h4, h5, h6 { font-size: 12px; }
 
 b, strong { font-size: bold; }
 
-a img { border: 0; }
+/* Don't use borders on images per default. Render them nicer in IE. */
+img { border: 0; -ms-interpolation-mode: bicubic; }
 
-a { color: # 333;
-  border - bottom: 1px#ccc dotted;
-}
-a: hover {
-  text - decoration: underline;
+a { color: #633; }
+a:hover {
+  text-decoration: underline;
+  color: #933;
 }
 p {
   margin: 0.5em 0;
   padding: 0.5em 0;
+}
+
+form { margin: 0; }
+fieldset {
+    margin: 0 3px;
+    padding: 0.3em 0.6em 0.6em;
+}
+
+/* Consistent ul/ol rendering */
+ul, ol, dd {
+    margin: 1em 0;
+    padding: 0 0 0 1em;
+}
+
+/*  Menus, navigation */
+div.menu ul, div.menu ol, nav ul, nav ol {
+    list-style: none;
+    list-style-image: none;
 }
