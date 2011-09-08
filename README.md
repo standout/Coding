@@ -6,7 +6,7 @@ In order to write readable, eloquent and coherent code we use the coding convent
 
 ### Indentation
 
-Indentation should always be done with tabs. By doing that everyone working on a project could easily use their own favorite tab size (some prefer 2 spaces, some 4 spaces and so on).
+Indentation should always be done with spaces. The indentation size doesn't really matter, but for Ruby, Python and CoffeeScript 2 spaces is preferable.
 
 ### Alignment
 
@@ -24,10 +24,6 @@ Example:
 ### Installation
 
 Installation of new Rack or Rails applications should be done with Pow. Pow is a efficient way to handle your applications without unnecessary configuration.
-
-### Indentation
-
-Indentation in Ruby should follow the Ruby best practices. In this case it means we break the general rule about indentation. Use 2 space indent, no tabs.
 
 ## JavaScript
 
