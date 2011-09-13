@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  font: 1em Georgia, "Times New Roman", Times, serif;
+  color: #000;
+}
+
+nav {
+  display: none;
+}
+
+a:link, a:visited {
+  color: #006;
+  font-weight: bold;
+  text-decoration: underline;
+}
+	
+#content a:link:after, #content a:visited:after {
+  content: " [" attr(href) "] ";
+}
