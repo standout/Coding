@@ -1,9 +1,9 @@
-/* 
+/*
 
   This is a starting point for a website css file.
-  
+
  */
- 
+
 html {
     font-size: 100%;
     overflow-y: scroll;
@@ -12,7 +12,7 @@ html {
 body {
   margin: 0;
   background: #fff;
-  color: #333; 
+  color: #333;
   font-family: Verdana, Tahoma, Geneva, sans-serif;
 }
 
@@ -28,6 +28,11 @@ h3 { font-size: 14px; }
 h4, h5, h6 { font-size: 12px; }
 
 b, strong { font-size: bold; }
+
+blockquote {
+  color: #888;
+  font-style: italic;
+}
 
 /* Don't use borders on images per default. Render them nicer in IE. */
 img { border: 0; -ms-interpolation-mode: bicubic; }
