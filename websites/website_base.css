@@ -16,6 +16,10 @@ body {
   font-family: Verdana, Tahoma, Geneva, sans-serif;
 }
 
+/* Block HTML5 attributes */
+header, footer, section, article {
+  display: block; }
+
 /* Set rules for all header elements */
 h1, h2, h3, h4, h5, h6 {
   font-size: 18px;
