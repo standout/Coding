@@ -27,7 +27,7 @@ h2 { font-size: 16px; }
 h3 { font-size: 14px; }
 h4, h5, h6 { font-size: 12px; }
 
-b, strong { font-size: bold; }
+b, strong { font-weight: bold; }
 
 /* Don't use borders on images per default. Render them nicer in IE. */
 img { border: 0; -ms-interpolation-mode: bicubic; }
