@@ -30,3 +30,7 @@ In-code alignment should always be done with spaces.
 
 * [Ruby](https://github.com/standout/Coding/blob/master/ruby.md)
 * [CSS](https://github.com/standout/Coding/blob/master/css.md)
+
+## Git
+
+[How we use Git and GitHub](https://github.com/standout/Coding/blob/master/git.md).
