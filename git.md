@@ -6,25 +6,25 @@ This is how we use Git (and GitHub).
 
 If you do not already have the repository locally you should clone it. We generally do not fork our repositories on GitHub, since all of us within the organization already have push rights.
 
-    ```bash
-    git clone git@github.com:standout/repository
-    ```
+```bash
+git clone git@github.com:standout/repository
+```
 
 ## 2. Check out feature branch
 
 Check out a branch from master, with a descriptive name. ```my-new-feature``` is a poor name choice.
 
-    ```bash
-    git checkout -b new-navigation-design
-    ```
+```bash
+git checkout -b new-navigation-design
+```
 
 When naming your branch, try to make it a Friends episode title ("The one with the..."). This is a tip taken from [The RSpec book](http://pragprog.com/book/achbd/the-rspec-book), but in that case it was for naming scenarios in Cucumber. "The one with the new navigation design" works pretty good for a branch name, too.
 
 When you have checked out your branch locally you should immediately push it to remote.
 
-    ```bash
-    git push -u origin new-navigation-design
-    ```
+```bash
+git push -u origin new-navigation-design
+```
 
 ## 3. Merge into master
 
@@ -40,18 +40,18 @@ Sometimes even the repository master makes pull requests. Cases for that could f
 
 If you are working on a project alone (or pretty much alone) it does not make much sense that you should review your own code.
 
-    ```bash
-    git checkout master
-    git merge new-navigation-design
-    git push
-    ```
+```bash
+git checkout master
+git merge new-navigation-design
+git push
+```
 
 ## 4. Delete feature branch
 
 When there is no more work to be done on your feature branch you can delete it.
 
-    ```bash
-    git checkout master # If your are not already there.
-    git branch -d new-navigation-design
-    git push origin :new-navigation-design
-    ```
+```bash
+git checkout master # If your are not already there.
+git branch -d new-navigation-design
+git push origin :new-navigation-design
+```
