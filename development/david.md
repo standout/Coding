@@ -36,7 +36,7 @@ upstream extrabrain {
 
 server {
   listen 80;
-  server_name extrabrain.dev, *.extrabrain.dev;
+  server_name extrabrain.dev *.extrabrain.dev;
   root ~/code/rails/extrabrain/public;
   location / {
     proxy_pass http://extrabrain;
