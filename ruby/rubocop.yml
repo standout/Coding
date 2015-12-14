@@ -3,7 +3,8 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
-    - "bin/*"
+    - tmp/**/*
+    - bin/*
     - Capfile
     - config/boot.rb
     - config/environment.rb
