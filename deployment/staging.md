@@ -5,7 +5,7 @@ for smaller apps. The following things differ between production and staging:
 
 # Domain convention
 
-Use `staging-appname.standout.se` or `staging.realappdomain.com`
+Use `appname.staging.standout.se` or `staging.realappdomain.com`
 
 # Databases
 
