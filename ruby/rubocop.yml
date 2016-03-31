@@ -36,5 +36,5 @@ Style/StringLiterals:
 Style/TrivialAccessors:
   AllowPredicates: true
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
