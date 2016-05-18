@@ -1,10 +1,18 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# http://editorconfig.org/
+
 root = true
 
 [*]
 end_of_line = lf
+trim_trailing_whitespace = true
 insert_final_newline = true
 charset = utf-8
 indent_style = space
 indent_size = 2
 curly_bracket_next_line = false
 indent_brace_style = K&R
+
+[*.md]
+trim_trailing_whitespace = false
