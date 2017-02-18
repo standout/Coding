@@ -20,6 +20,10 @@ Metrics/LineLength:
   Exclude:
     - "config/**/*"
 
+Metrics/BlockLength:
+  Exclude:
+    - "config/environments/**/*"
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
