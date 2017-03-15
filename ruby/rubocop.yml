@@ -24,6 +24,9 @@ Metrics/BlockLength:
   Exclude:
     - "config/environments/**/*"
 
+Style/AsciiComments:
+  Enabled: false
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
