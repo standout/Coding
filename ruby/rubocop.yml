@@ -36,6 +36,9 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
+Style/IndentHash:
+  EnforcedStyle: consistent
+
 Style/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
