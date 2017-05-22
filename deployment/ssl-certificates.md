@@ -23,8 +23,9 @@ server {
    ...
    listen 443 ssl;
    server_name example.com www.example.com;
-   ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+   # Uncomment and reload nginx when ssl-certificates are installed
+   # ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+   # ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
 
    # Handle incoming ssl verification requests
    location ^~ /.well-known/ {
@@ -60,7 +61,6 @@ Normally this is set in the server path in the nginx file above.
 ### 4. Add to cron
 
 ```
-0 0 * * 1 /usr/local/letsencrypt/letsencrypt-auto certonly -a webroot --agree-tos --renew-by-default --webroot-path=/var/www/myapp/current/public -d example.com && sudo service nginx reload
+0 0 * * 1 /usr/local/letsencrypt/letsencrypt-auto renew && sudo service nginx reload
 ```
 
-On most servers I'd like to collect all certificate updates in one bash script instead of writing long lines like the one above.
