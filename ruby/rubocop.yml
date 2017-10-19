@@ -23,6 +23,8 @@ Metrics/LineLength:
 Metrics/BlockLength:
   Exclude:
     - "config/environments/**/*"
+    - "spec/**/*.rb"
+    - "test/**/*.rb"
 
 Style/AsciiComments:
   Enabled: false
