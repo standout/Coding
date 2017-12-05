@@ -64,3 +64,21 @@ Normally this is set in the server path in the nginx file above.
 0 0 * * 1 /usr/local/letsencrypt/letsencrypt-auto renew && sudo service nginx reload
 ```
 
+## Removing a new ssl cert for a domain
+`/usr/local/letsencrypt/letsencrypt-auto delete`
+```
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+
+Which certificate(s) would you like to delete?
+-------------------------------------------------------------------------------
+1: example.com
+2: example.org
+3: example.net
+-------------------------------------------------------------------------------
+Select the appropriate numbers separated by commas and/or spaces, or leave input
+blank to select all options shown (Enter 'c' to cancel): 1
+
+-------------------------------------------------------------------------------
+Deleted all files relating to certificate example.com.
+-------------------------------------------------------------------------------
+```
