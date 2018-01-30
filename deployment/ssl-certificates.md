@@ -47,6 +47,8 @@ return 301 https://$host$request_uri;
 
 ### 2. Reload nginx
 
+`nginx -t` Verify first that the config is ok
+
 `sudo service nginx reload`
 
 ### 3. Find out your webroot path
