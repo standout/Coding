@@ -9,6 +9,10 @@ We're assuming that you have a working Nginx-server up and running.
 
 `git clone https://github.com/letsencrypt/letsencrypt /usr/local/letsencrypt`
 
+* Place `letsencrypt-auto` somewhere in `$PATH`
+
+`ln -s /usr/local/letsencrypt/letsencrypt-auto /usr/local/bin/letsencrypt-auto`
+
 Note that this needs to be run as root in the future. See [the docs](https://letsencrypt.readthedocs.org/en/latest/intro.html#system-requirements).
 
 ## Adding a new ssl cert for a domain
