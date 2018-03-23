@@ -16,6 +16,15 @@ AllCops:
 Rails:
   Enabled: true
 
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
 Metrics/LineLength:
   Exclude:
     - "config/**/*"
@@ -38,17 +47,8 @@ Style/Documentation:
 Style/DoubleNegation:
   Enabled: false
 
-Style/IndentHash:
-  EnforcedStyle: consistent
-
-Style/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
-
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 Style/TrivialAccessors:
   AllowPredicates: true
-
-Style/SpaceBeforeFirstArg:
-  Enabled: false
