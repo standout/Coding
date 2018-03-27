@@ -22,9 +22,6 @@ Layout/IndentHash:
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
-Layout/SpaceBeforeFirstArg:
-  Enabled: false
-
 Metrics/LineLength:
   Exclude:
     - "config/**/*"
