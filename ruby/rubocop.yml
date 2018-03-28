@@ -22,6 +22,10 @@ Layout/IndentHash:
 Layout/SpaceAroundEqualsInParameterDefault:
   EnforcedStyle: no_space
 
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
 Metrics/LineLength:
   Exclude:
     - "config/**/*"
