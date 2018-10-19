@@ -66,6 +66,41 @@ data.db:
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/postgres9.sh | DATABASE_NAME=foobar bash
 ```
 
+## MySQL 5
+
+The script expects that your mysql component is named `data.db`. It should
+like similar to this without backups configurated.
+
+```yaml
+data.db:
+  image: nanobox/mysql:5.6
+```
+
+**You must** make sure that the environment variable `DATABASE_NAME` is correct. It will default to backup the database named `gonano` unless you override that by setting the `DATABASE_NAME` variable before you execute the script using bash. You could also set the variable directly to the nanobox environment like this.
+
+```
+$ nanobox evar add NAME_OF_YOUR_NANOBOX_APP DATABASE_NAME=foobar
+```
+
+To backup once you could run
+
+```
+$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/mysql5.sh | DATABASE_NAME=foobar bash
+```
+
+To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
+
+```yaml
+data.db:
+  image: nanobox/nanobox/mysql:5.6
+  extra_packages:
+    - py36-awscli
+  cron:
+    - id: backup
+      schedule: '0 3 * * *'
+      command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/mysql5.sh | DATABASE_NAME=foobar bash
+```
+
 ## UNFS storage
 
 To backup once you could run
