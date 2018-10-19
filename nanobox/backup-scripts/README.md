@@ -76,7 +76,7 @@ data.db:
   image: nanobox/mysql:5.6
 ```
 
-**You must** make sure that the environment variable `DATABASE_NAME` is correct. It will default to backup the database named `gonano` unless you override that by setting the `DATABASE_NAME` variable before you execute the script using bash. You could also set the variable directly to the nanobox environment like this.
+**You must** make sure that the environment variable `DATABASE_NAME` is correct before you execute the script using bash. You could also set the variable directly to the nanobox environment like this.
 
 ```
 $ nanobox evar add NAME_OF_YOUR_NANOBOX_APP DATABASE_NAME=foobar
