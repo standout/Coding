@@ -66,3 +66,23 @@ data.db:
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/postgres9.sh | DATABASE_NAME=foobar bash
 ```
 
+## UNFS storage
+
+To backup once you could run
+
+```
+$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
+```
+
+To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
+
+```yaml
+data.storage:
+  image: nanobox/unfs:0.9
+  extra_packages:
+    - py36-awscli
+  cron:
+    - id: backup
+      schedule: '0 3 * * *'
+      command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
+```
