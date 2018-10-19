@@ -8,7 +8,7 @@ set -euxo pipefail
 #
 # DATABASE_NAME
 #
-#     The database you would like to backup, defaults to gonano
+#     The database you would like to backup
 #
 # AWS_S3_ENDPOINT_URL
 #
