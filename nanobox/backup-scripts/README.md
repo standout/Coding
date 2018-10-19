@@ -69,7 +69,7 @@ data.db:
 ## MySQL 5
 
 The script expects that your mysql component is named `data.db`. It should
-like similar to this without backups configurated.
+look similar to this without backups configurated.
 
 ```yaml
 data.db:
