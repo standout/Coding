@@ -46,7 +46,7 @@ mysqldump --disable-keys --hex-blob -u ${DATA_DB_USER} -p"${DATA_DB_PASS}" --dat
   tee >(cat - >&4) |
   curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-${date}.sql.gz -X POST -T - >&2
 ) 4>&1 |
-  aws s3 cp - s3://${AWS_S3_BACKUP_BUCKET}/${APP_NAME}-backup-${HOSTNAME}-${date}.sql.gz
+  aws --endpoint-url ${AWS_S3_ENDPOINT_URL} s3 cp - s3://${AWS_S3_BACKUP_BUCKET}/${APP_NAME}-backup-${HOSTNAME}-${date}.sql.gz
 curl -k -s -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/ |
   sed 's/,/\n/g' |
   grep ${HOSTNAME} |
@@ -56,5 +56,5 @@ curl -k -s -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUS
   while read file
   do
     curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/${file} -X DELETE
-    aws s3 rm s3://${AWS_S3_BACKUP_BUCKET}/${APP_NAME}-${file}
+    aws --endpoint-url ${AWS_S3_ENDPOINT_URL} s3 rm s3://${AWS_S3_BACKUP_BUCKET}/${APP_NAME}-${file}
   done
