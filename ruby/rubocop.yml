@@ -2,6 +2,7 @@ AllCops:
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
+    - db/**/*
     - tmp/**/*
     - bin/*
     - Capfile
