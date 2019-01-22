@@ -17,8 +17,8 @@ set before you continue.
 
 To add an environment variable to the nanobox environment
 
-```
-$ nanobox evar add NAME_OF_YOUR_NANOBOX_APP MY_EVAR=myvalue
+```bash
+nanobox evar add [name of your nanobox app] MY_EVAR=myvalue
 ```
 
 Each component that is using the backup scripts will also need awscli. You can install that by adding `py36-awscli` as an extra package like this.
@@ -29,7 +29,6 @@ data.name:
   extra_packages:
     - py36-awscli
 ```
-
 
 ## Postgres 9
 
@@ -43,14 +42,14 @@ data.db:
 
 **You must** make sure that the environment variable `DATABASE_NAME` is correct. It will default to backup the database named `gonano` unless you override that by setting the `DATABASE_NAME` variable before you execute the script using bash. You could also set the variable directly to the nanobox environment like this.
 
-```
-$ nanobox evar add NAME_OF_YOUR_NANOBOX_APP DATABASE_NAME=foobar
+```bash
+nanobox evar add [name of your nanobox app] DATABASE_NAME=foobar
 ```
 
 To backup once you could run
 
-```
-$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/postgres9.sh | DATABASE_NAME=foobar bash
+```bash
+curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/postgres9.sh | DATABASE_NAME=foobar bash
 ```
 
 To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
@@ -66,6 +65,26 @@ data.db:
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/postgres9.sh | DATABASE_NAME=foobar bash
 ```
 
+### Restore from backup
+
+First you need to enter the console for the database.
+
+```bash
+nanobox console [remote] data.db
+```
+
+Restore from latest backup that is stored in the warehouse.
+
+```bash
+curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.sql.gz | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U ${DATA_DB_USER} -d ${DATABASE_NAME} -w -Fc -O
+```
+
+Or restore from any file available in a public url
+
+```bash
+curl -k [url to gziped backup file] | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U ${DATA_DB_USER} -d ${DATABASE_NAME} -w -Fc -O
+```
+
 ## MySQL 5
 
 The script expects that your mysql component is named `data.db`. It should
@@ -78,14 +97,14 @@ data.db:
 
 **You must** make sure that the environment variable `DATABASE_NAME` is correct before you execute the script using bash. You could also set the variable directly to the nanobox environment like this.
 
-```
-$ nanobox evar add NAME_OF_YOUR_NANOBOX_APP DATABASE_NAME=foobar
+```bash
+nanobox evar add [name of your nanobox app] DATABASE_NAME=foobar
 ```
 
 To backup once you could run
 
-```
-$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/mysql5.sh | DATABASE_NAME=foobar bash
+```bash
+curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/mysql5.sh | DATABASE_NAME=foobar bash
 ```
 
 To backup each night at 03:00 you should change your component in the boxfile to look like this
@@ -101,12 +120,32 @@ data.db:
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/mysql5.sh | DATABASE_NAME=foobar bash
 ```
 
+### Restore from backup
+
+First you need to enter the console for the database.
+
+```bash
+nanobox console [remote] data.db
+```
+
+Restore from latest backup that is stored in the warehouse.
+
+```bash
+curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.sql.gz | gunzip | mysql -u ${DATA_DB_USER} -p"${DATA_DB_PASS}" ${DATABASE_NAME}
+```
+
+Or restore from any file available in a public url
+
+```bash
+curl -k [url to gziped backup file] | gunzip | mysql -u ${DATA_DB_USER} -p"${DATA_DB_PASS}" ${DATABASE_NAME}
+```
+
 ## UNFS storage
 
 To backup once you could run
 
-```
-$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
+```bash
+curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
 ```
 
 To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
@@ -122,12 +161,33 @@ data.storage:
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
 ```
 
+### Restore from backup
+
+First you need to enter the console for the database.
+
+```bash
+nanobox console [remote] data.storage
+```
+
+Restore from latest backup that is stored in the warehouse.
+
+```bash
+curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.tgz | tar xz -C /data/var/db/unfs/
+```
+
+Or restore from any file available in a public url
+
+```bash
+curl -k [url to .tgz file] | tar xz -C /data/var/db/unfs/
+```
+
+
 ## Redis
 
 To backup once you could run
 
-```
-$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/redis.sh | bash
+```bash
+curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/redis.sh | bash
 ```
 
 To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
@@ -141,4 +201,28 @@ data.redis:
     - id: backup
       schedule: '0 3 * * *'
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/redis.sh | bash
+```
+
+### Restore from backup
+
+First you need to enter the console for the database.
+
+```bash
+nanobox console [remote] data.redis
+```
+
+Restore from latest backup that is stored in the warehouse.
+
+```bash
+sudo sv stop cache
+curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.rdb -o /data/var/db/redis/dump.rdb
+sudo sv start cache
+```
+
+Or restore from any file available in a public url
+
+```bash
+sudo sv stop cache
+curl -k [url to .rdb file] -o /data/var/db/redis/dump.rdb
+sudo sv start cache
 ```
