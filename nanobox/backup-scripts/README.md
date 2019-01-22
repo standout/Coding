@@ -121,3 +121,24 @@ data.storage:
       schedule: '0 3 * * *'
       command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/unfs.sh | bash
 ```
+
+## Redis
+
+To backup once you could run
+
+```
+$ curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/redis.sh | bash
+```
+
+To backup each night at 03:00 you should change your comoponent in the boxfile to look like this
+
+```yaml
+data.redis:
+  image: nanobox/redis
+  extra_packages:
+    - py36-awscli
+  cron:
+    - id: backup
+      schedule: '0 3 * * *'
+      command: curl -fsSL https://raw.githubusercontent.com/standout/Coding/master/nanobox/backup-scripts/redis.sh | bash
+```
