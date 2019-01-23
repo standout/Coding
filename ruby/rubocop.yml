@@ -35,6 +35,8 @@ Metrics/BlockLength:
     - "config/environments/**/*"
     - "spec/**/*.rb"
     - "test/**/*.rb"
+    - "lib/tasks/**/*.rake"
+    - "Rakefile"
 
 Style/AsciiComments:
   Enabled: false
