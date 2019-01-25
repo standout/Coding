@@ -12,9 +12,46 @@ AllCops:
     - Gemfile
     - Guardfile
     - Rakefile
+    - node_modules/**/*
+    - vendor/**/*
 
 Rails:
   Enabled: true
+
+Rails/ApplicationRecord:
+  Exclude:
+    - db/migrate/*
+
+Style/MixinUsage:
+  Exclude:
+    - db/seeds.rb
+    - db/seeds/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/**/*
+    - config/routes.rb
+    - db/migrate/*
+    - spec/**/*.rb
+    - test/**/*.rb
+
+Metrics/LineLength:
+  Exclude:
+    - Gemfile
+    - Rakefile
+    - config/*
+    - config/environments/*
+    - config/initializers/*
+    - db/migrate/*
+    - db/schema.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
 
 Layout/IndentHash:
   EnforcedStyle: consistent
@@ -25,16 +62,6 @@ Layout/SpaceAroundEqualsInParameterDefault:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - "spec/**/*"
-
-Metrics/LineLength:
-  Exclude:
-    - "config/**/*"
-
-Metrics/BlockLength:
-  Exclude:
-    - "config/environments/**/*"
-    - "spec/**/*.rb"
-    - "test/**/*.rb"
 
 Style/AsciiComments:
   Enabled: false
