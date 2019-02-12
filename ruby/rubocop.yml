@@ -56,9 +56,6 @@ Metrics/MethodLength:
 Layout/IndentHash:
   EnforcedStyle: consistent
 
-Layout/SpaceAroundEqualsInParameterDefault:
-  EnforcedStyle: no_space
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - "spec/**/*"
