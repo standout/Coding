@@ -53,7 +53,7 @@ Metrics/MethodLength:
   Exclude:
     - db/migrate/*
 
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
 Lint/AmbiguousBlockAssociation:
