@@ -51,7 +51,7 @@ curl -k -s -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUS
   sed 's/,/\n/g' |
   grep ${HOSTNAME} |
   sort |
-  head -n-${BACKUP_COUNT:-1} |
+  head -n-${BACKUP_COUNT:-10} |
   sed 's/.*: \?"\(.*\)".*/\1/' |
   while read file
   do

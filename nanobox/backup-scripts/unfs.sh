@@ -46,7 +46,7 @@ curl -k -s -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUS
   ruby -e "require 'json'; json = JSON.parse(gets); puts JSON.pretty_generate(json)" | # This is a replacement for json_pp
   grep ${HOSTNAME} |
   sort |
-  head -n-${BACKUP_COUNT:-5} | # Change the env var BACKUP_COUNT to change how many backups should be saved
+  head -n-${BACKUP_COUNT:-10} | # Change the env var BACKUP_COUNT to change how many backups should be saved
   sed 's/.*: "\(.*\)".*/\1/' |
   while read file
   do
