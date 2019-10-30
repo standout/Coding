@@ -5,13 +5,7 @@ AllCops:
     - tmp/**/*
     - bin/*
     - Capfile
-    - config/boot.rb
-    - config/environment.rb
-    - config/initializers/version.rb
     - db/schema.rb
-    - Gemfile
-    - Guardfile
-    - Rakefile
     - node_modules/**/*
     - vendor/**/*
 
@@ -40,40 +34,17 @@ Metrics/BlockLength:
     - test/**/*.rb
 
 Metrics/LineLength:
+  Max: 120
   Exclude:
-    - Gemfile
-    - Rakefile
-    - config/*
-    - config/environments/*
-    - config/initializers/*
-    - db/migrate/*
     - db/schema.rb
 
 Metrics/MethodLength:
   Exclude:
     - db/migrate/*
 
-Layout/IndentFirstHashElement:
-  EnforcedStyle: consistent
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - "spec/**/*"
+    - 'spec/**/*'
 
 Style/AsciiComments:
   Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/DoubleNegation:
-  Enabled: false
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-
-Style/TrivialAccessors:
-  AllowPredicates: true
