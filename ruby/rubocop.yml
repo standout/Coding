@@ -34,7 +34,6 @@ Metrics/BlockLength:
     - test/**/*.rb
 
 Metrics/LineLength:
-  Max: 120
   Exclude:
     - db/schema.rb
 
