@@ -76,13 +76,13 @@ nanobox console [remote] data.db
 Restore from latest backup that is stored in the warehouse.
 
 ```bash
-curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.sql.gz | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U ${DATA_DB_USER} -d ${DATABASE_NAME} -w -Fc -O
+curl -k -H "X-AUTH-TOKEN: ${WAREHOUSE_DATA_HOARDER_TOKEN}" https://${WAREHOUSE_DATA_HOARDER_HOST}:7410/blobs/backup-${HOSTNAME}-{date}.sql.gz | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U${DATA_DB_USER} -d${DATABASE_NAME} -w -Fc -O
 ```
 
 Or restore from any file available in a public url
 
 ```bash
-curl -k [url to gziped backup file] | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U ${DATA_DB_USER} -d ${DATABASE_NAME} -w -Fc -O
+curl -k [url to gziped backup file] | gunzip | PGPASSWORD=${DATA_DB_PASS} pg_restore -U${DATA_DB_USER} -d${DATABASE_NAME} -w -Fc -O
 ```
 
 ## MySQL 5
