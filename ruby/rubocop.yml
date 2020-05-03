@@ -33,7 +33,7 @@ Metrics/BlockLength:
     - spec/**/*.rb
     - test/**/*.rb
 
-Metrics/LineLength:
+Layout/LineLength:
   Exclude:
     - db/schema.rb
 
