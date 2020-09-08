@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: disable
   DisplayCopNames: true
   DisplayStyleGuide: true
   Exclude:
@@ -34,6 +35,7 @@ Metrics/BlockLength:
     - test/**/*.rb
 
 Layout/LineLength:
+  Max: 80
   Exclude:
     - db/schema.rb
 
