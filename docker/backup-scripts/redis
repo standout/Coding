@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# Replace values inside < >
+
+date=$(date -u +%Y-%m-%d.%H-%M-%S)
+name=<app-name>
+aws_endpoint=<https://s3.amazonaws.com>
+aws_bucket=<aws-bucket>
+container_name=<redis-container-name>
+rdb_file=</data/dump.rdb>
+
+docker cp ${container_name}:${rdb_file} - | gzip | aws --endpoint-url ${aws_endpoint} s3 cp - s3://${aws_bucket}/${name}-redis-backup-${date}.rdb.gz
+
+aws --endpoint-url ${aws_endpoint} s3 ls ${aws_bucket}/ | while read -r line;
+  do
+    create_date=`echo $line|awk {'print $1" "$2'}`
+    create_date=`date -d"$create_date" +%s`
+    older_than=`date --date "10 days ago" +%s`
+
+    if [[ $create_date -lt $older_than ]]
+      then
+        file_name=`echo $line|awk {'print $4'}`
+
+        if [[ $file_name == *"-redis-backup-"* ]]
+          then
+            aws --endpoint-url ${aws_endpoint} s3 rm ${aws_bucket}/$file_name
+        fi
+    fi
+  done;
