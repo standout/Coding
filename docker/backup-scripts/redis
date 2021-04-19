@@ -23,7 +23,7 @@ aws --endpoint-url ${aws_endpoint} s3 ls ${aws_bucket}/ | while read -r line;
 
         if [[ $file_name == *"-redis-backup-"* ]]
           then
-            aws --endpoint-url ${aws_endpoint} s3 rm ${aws_bucket}/$file_name
+            aws --endpoint-url ${aws_endpoint} s3 rm s3://${aws_bucket}/$file_name
         fi
     fi
   done;
