@@ -2,8 +2,9 @@
 
 # Replace values inside < >
 
+environment=${1:-production}
 date=$(date -u +%Y-%m-%d.%H-%M-%S)
-name=<app-name>
+name="<app-name->${environment}"
 aws_endpoint=<https://s3.amazonaws.com>
 aws_bucket=<aws-bucket>
 container_name=<postgres-container-name>
