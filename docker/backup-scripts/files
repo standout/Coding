@@ -6,8 +6,8 @@ environment=${1:-production}
 date=$(date -u +%Y-%m-%d.%H-%M-%S)
 name="<app-name>-${environment}"
 aws_endpoint=<https://s3.amazonaws.com>
-aws_bucket="<aws-bucket>-${environment}"
-container_name="<web-container-name>-${environment}_web_1"
+aws_bucket=<aws-bucket>
+container_name=<web-container-name>
 files_path=<files-path>
 
 docker cp ${container_name}:${files_path} - | gzip | aws --endpoint-url ${aws_endpoint} s3 cp - s3://${aws_bucket}/${name}-files-backup-${date}.rdb.gz
